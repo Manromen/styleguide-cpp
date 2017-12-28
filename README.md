@@ -11,6 +11,7 @@ So use it in your favor if you want to and/or override the style guide in any wa
 1. [Comments / Doxygen](#comments)
 1. [File Names](#file-names)
 1. [Asset Naming Conventions](#asset-naming-conventions)
+1. [Logging](#logging)
 1. [Roadmap](#roadmap)
 1. [Resources](#resources)
 1. [License](#license)
@@ -227,6 +228,82 @@ The `SIZE` part is optional and describes the size of the drawable. This can eit
 
 **[back to top](#table-of-contents)**
 
+<a name="logging"></a>
+## [0](#logging) Logging
+
+<a name="logging-logger"></a>
+### [0.1](#logging-logger) Logger
+
+Today applications grow rapidly, becoming complicated and difficult to test and debug. This is where logging can help. For most applications we already use the [Boost libraries](http://www.boost.org). Boost provides also a library for logging. [Boost.Log v2](http://www.boost.org/doc/libs/1_66_0/libs/log/doc/html/index.html) and the appropiate log level must be used to help debug errors.
+
+```
+// example
+#include <boost/log/trivial.hpp>
+
+int main(int argc, char *argv[])
+{
+    BOOST_LOG_TRIVIAL(trace) << "A trace severity message";
+    BOOST_LOG_TRIVIAL(debug) << "A debug severity message";
+    BOOST_LOG_TRIVIAL(info) << "An informational severity message";
+    BOOST_LOG_TRIVIAL(warning) << "A warning severity message";
+    BOOST_LOG_TRIVIAL(error) << "An error severity message";
+    BOOST_LOG_TRIVIAL(fatal) << "A fatal severity message";
+
+    return 0;
+}
+```
+
+<a name="logging-loglevels"></a>
+### [0.2](#logging-loglevels) Log levels
+
+Boost.Log provides a various amount of log levels each with its own purpose.
+Here is a list of log levels and their meaning:
+
+| Level | Meaning |
+|---|---|
+| trace | For developers only, can be used to follow the program execution. |
+| debug | For developers only, for debugging purpose. |
+| info | Production optionally, course grained (rarely written informations) that can help sysadmins etc. |
+| warning | Production, simple application error or unexpected behaviour. Application can continue. Warn for example in case of bad login attempts, unexpected data during import jobs. |
+| error | Production, application error/exception but application can continue. Part of the application is probably not working. |
+| fatal | Production, fatal application error/exception, application cannot continue, for example database is down. |
+
+<a name="logging-log-messages"></a>
+### [0.3](#logging-log-messages) Logging Messages
+
+Write meaningful log messages. This sounds easy but is in fact really hard. Keep in mind, that you sometimes log for the event of an error, which in reality occurs only rarely. 
+But if it does, you depend on a clear log message along with an expressive payload. A good log message must consist of the following items:
+
+* The filename and linenumber of the log statement (these are: `__FILE__` and `__LINE__` for C/C++)
+* A meaningful log message
+* An expressive payload, usually a JSON
+
+<a name="logging-log-language"></a>
+### [0.4](#logging-log-language) Logging Message Language
+
+Write your log messages in english. English is a well known language both in terms of writing and reading. Furthermore does it not contain any special characters, which means that it can be logged with ASCII. This is especially important when performing log rotation, since you do not know where your logs are stored.
+
+<a name="logging-payload"></a>
+### [0.5](#logging-payload) Logging Payload
+
+Always log with payload (i.e. context).
+The log message often is not sufficient when tracing bugs. You almost always need additional information. So just log them along with the message and you keep yourself from deploying a new version of the app just to improve log messages.
+
+Make sure that the payload is well formatted and complete. The format helps you to filter and/or search for certain events.
+
+```
+// good
+Transaction failed: { id: 63287, checksum: null }
+
+// bad
+Transaction failed!
+
+// bad. Payload included but hard to read/parse
+Transaction '63287' failed: Checksum 'null' is invalid!
+```
+
+**[back to top](#table-of-contents)**
+
 <a name="roadmap"></a>
 ## [0](#roadmap) Roadmap
 
@@ -250,6 +327,11 @@ These items are categorized in two sections namely `next` for items added in the
 ### [0.1](#resources-documentation) Documentation
 
 * [http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html](http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html)
+
+<a name="resources-logging"></a>
+### [0.2](#resources-logging) Logging
+
+* [Boost.Log v2](http://www.boost.org/doc/libs/1_66_0/libs/log/doc/html/index.html)
 
 <a name="resources-related-work"></a>
 ### [0.2](#resources-related-work) Related Work
