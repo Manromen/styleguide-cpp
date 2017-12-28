@@ -7,19 +7,43 @@ So use it in your favor if you want to and/or override the style guide in any wa
 <a name="table-of-contents"></a>
 ## Table of Contents
 
+1. [Roadmap](#roadmap)
 1. [Resources](#resources)
 1. [License](#license)
 
-<a name="resources"></a>
-## Resources
 
 ### Documentation
 
-* [http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html](http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html)
 
 **[back to top](#table-of-contents)**
 
-### Related Work
+
+<a name="roadmap"></a>
+## [0](#roadmap) Roadmap
+
+This section describes items, which will be added to this style guide in the future.
+These items are categorized in two sections namely `next` for items added in the next release and `future` for items added in future releases without a fixed date.
+
+<a name="roadmap-next"></a>
+### [0.1](#roadmap-next) Next
+
+<a name="roadmap-future"></a>
+### [0.2](#roadmap-future) Future
+
+* Linter for continuous integration based on this style guide
+
+**[back to top](#table-of-contents)**
+
+<a name="resources"></a>
+## [0](#resources) Resources
+
+<a name="resources-documentation"></a>
+### [0.1](#resources-documentation) Documentation
+
+* [http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html](http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html)
+
+<a name="resources-related-work"></a>
+### [0.2](#resources-related-work) Related Work
 
 This Style Guide is inspired by the following Style Guides:
 
