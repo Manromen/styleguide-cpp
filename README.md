@@ -8,12 +8,12 @@ So use it in your favor if you want to and/or override the style guide in any wa
 ## Table of Contents
 
 1. [Dependencies](#dependencies)
+1. [Comments / Doxygen](#comments)
 1. [Roadmap](#roadmap)
 1. [Resources](#resources)
 1. [License](#license)
 
 
-### Documentation
 <a name="dependencies"></a>
 ## [0](#dependencies) Dependencies
 
@@ -35,6 +35,145 @@ Dependencies should be found and structured at a well known place. Therefore the
 
 **[back to top](#table-of-contents)**
 
+<a name="comments"></a>
+## [0](#comments) Comments / Doxygen
+
+<a name="comments-documentation"></a>
+### [0.1](#comments-documentation) Documentation
+
+Every class and it's methods must contain a description of what it is for and how it does it's task. To utilize IDEs with doxygen support and to be able to generate a documentation, these descriptions must use the doxygen syntax. To be uniformly the `!` is used to mark a doxygen comment and `@` to mark commands like `@brief` and `@param`.
+
+```
+// good
+
+/*!
+* @brief This does something.
+* @details A more detailed description ...
+* @param tag The tag that is used to do something.
+* @return true if done successfully, false on failure.
+* @sa doSomethingRelated()
+*/
+bool doSomething(string* tag);
+
+// bad
+
+/**
+* \brief This does something.
+* \param tag The tag that is used to do something.
+*/
+void doSomething(string* tag);
+```
+
+<a name="comments-multiline-comments"></a>
+### [0.2](#comments-multiline-comments) Multiline comments
+
+Use `/*! ... */` for block comments.
+
+```
+// good
+
+/*!
+* @brief This does something.
+* @param tag The tag.
+*/
+bool doSomething(string* tag);
+
+// bad
+
+// @brief This does something.
+// @param tag The tag.
+bool doSomething(string* tag);
+```
+
+<a name="comments-singleline-comment"></a>
+### [0.3](#comments-singleline-comment) Singleline comment
+
+Use `//` for single line comments.
+Place single line comments on a newline above the subject of the comment. Put an empty line before the comment unless it's on the first line of a block.
+
+```
+// good
+// is current tab
+int active = true;
+
+// bad
+int active = true; // is current tab
+
+
+// good
+int getType()
+{
+    os_log_debug(OS_LOG_DEFAULT, "%s(%i): Fetching type...", __FILE__, __LINE__);
+
+    // set the default type to 'no type'
+    int typeOut = _type ? _type : -1;
+
+    return typeOut;
+}
+
+// bad
+int getType()
+{
+    os_log_debug(OS_LOG_DEFAULT, "%s(%i): Fetching type...", __FILE__, __LINE__);
+    // set the default type to 'no type'
+    int typeOut = _type ? _type : -1;
+    
+    return typeOut;
+}
+
+
+// also good
+int getType()
+{
+    // set the default type to 'no type'
+    int typeOut = _type ? _type : -1;
+    
+    return type;
+}
+```
+
+<a name="comments-spaces"></a>
+### [0.4](#comments-spaces) Spaces
+
+Start all comments with a space to make it easier to read.
+
+```
+// good
+// is current tab
+int active = true;
+
+// bad
+//is current tab
+int active = true;
+```
+
+<a name="comments-fixme"></a>
+### [0.5](#comments-fixme) Fixme
+
+Use `// FIXME:` to annotate problems.
+
+```
+Calculator::Calculator()
+{
+    // FIXME: shouldn't use a global here
+    _total = 0;
+}
+```
+
+<a name="comments-todo"></a>
+### [0.6](#comments-todo) Todo
+
+Use `// TODO:` to annotate solutions to problems.
+
+```
+Calculator::Calculator()
+{
+    // TODO: total should be configurable by an options param
+    _total = 0;
+}
+```
+
+**[back to top](#table-of-contents)**
 
 <a name="roadmap"></a>
 ## [0](#roadmap) Roadmap
