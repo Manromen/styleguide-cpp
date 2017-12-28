@@ -26,8 +26,10 @@ This Style Guide is inspired by the following Style Guides:
 * [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 * [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
 
+**[back to top](#table-of-contents)**
+
 <a name="license"></a>
-## License
+## [0](#license) License
 
 (The MIT License)
 
