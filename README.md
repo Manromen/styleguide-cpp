@@ -9,6 +9,8 @@ So use it in your favor if you want to and/or override the style guide in any wa
 
 1. [Dependencies](#dependencies)
 1. [Comments / Doxygen](#comments)
+
+1. [Asset Naming Conventions](#asset-naming-conventions)
 1. [Roadmap](#roadmap)
 1. [Resources](#resources)
 1. [License](#license)
@@ -172,6 +174,42 @@ Calculator::Calculator()
     _total = 0;
 }
 ```
+
+**[back to top](#table-of-contents)**
+
+<a name="asset-naming-conventions"></a>
+## [0](#asset-naming-conventions) Asset Naming Conventions
+
+<a name="asset-naming-conventions-image-naming"></a>
+### [0.1](#asset-naming-conventions-image-naming) Image Naming
+
+Images must be named after the following pattern:
+
+```
+<WHAT>_<WHERE>_<DESCRIPTION>[_<SIZE>][_STATE]
+```
+
+```
+// example
+bg_login_background
+ic_login_button_small_pressed
+```
+
+The `WHAT` denodes the type of the drawable. It can be one of the following:
+
+* ic (Icons)
+* bg (Backgrounds)
+* shape (Shapes)
+
+The `WHERE` describes in which part of the app the drawable is used. If the drawable is used in more than one screen use `all`.
+The `DESCRIPTION` must tell the reader what the actual purpose of the drawable is.
+The `SIZE` part is optional and describes the size of the drawable. This can either be a measurable (e.g. 24dp) or a generic term (e.g. small).
+`STATE` indicates optionally the state of the drawable. It can be one of the following:
+
+* normal (can be omitted)
+* disabled
+* selected
+* pressed
 
 **[back to top](#table-of-contents)**
 
