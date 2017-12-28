@@ -100,11 +100,10 @@ int active = true;
 // bad
 int active = true; // is current tab
 
-
 // good
 int getType()
 {
-    os_log_debug(OS_LOG_DEFAULT, "%s(%i): Fetching type...", __FILE__, __LINE__);
+    BOOST_LOG_TRIVIAL(debug) << __FILE__ << "(" << __LINE__ << "): " << "Fetching type...";
 
     // set the default type to 'no type'
     int typeOut = _type ? _type : -1;
@@ -115,13 +114,12 @@ int getType()
 // bad
 int getType()
 {
-    os_log_debug(OS_LOG_DEFAULT, "%s(%i): Fetching type...", __FILE__, __LINE__);
+    BOOST_LOG_TRIVIAL(debug) << __FILE__ << "(" << __LINE__ << "): " << "Fetching type...";
     // set the default type to 'no type'
     int typeOut = _type ? _type : -1;
     
     return typeOut;
 }
-
 
 // also good
 int getType()
