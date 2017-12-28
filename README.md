@@ -7,13 +7,31 @@ So use it in your favor if you want to and/or override the style guide in any wa
 <a name="table-of-contents"></a>
 ## Table of Contents
 
+1. [Dependencies](#dependencies)
 1. [Roadmap](#roadmap)
 1. [Resources](#resources)
 1. [License](#license)
 
 
 ### Documentation
+<a name="dependencies"></a>
+## [0](#dependencies) Dependencies
 
+<a name="dependencies-library-version"></a>
+### [0.1](#dependencies-library-version) Library version
+
+Always use the latest stable version of a library if possible.
+Make sure to migrate also major releases if possible.
+
+<a name="dependencies-library-provision"></a>
+### [0.2](#dependencies-library-provision) Library provision
+
+Libraries must be included using git submodules if compiled within the project itself or using an artefact repository (like sonatype nexus) if precompiled. Provide a script for installing these if needed. The name of the script must be install-deps.sh and placed at the source root.
+
+<a name="dependencies-folder"></a>
+### [0.3](#dependencies-folder) Folder
+
+Dependencies should be found and structured at a well known place. Therefore these must be placed under the `deps` folder at the souce root. Precompiled libraries must be placed under the subfolder `lib` and the corresponding header files must be under the subfolder `include`.
 
 **[back to top](#table-of-contents)**
 
