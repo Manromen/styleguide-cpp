@@ -9,12 +9,11 @@ So use it in your favor if you want to and/or override the style guide in any wa
 
 1. [Dependencies](#dependencies)
 1. [Comments / Doxygen](#comments)
-
+1. [File Names](#file-names)
 1. [Asset Naming Conventions](#asset-naming-conventions)
 1. [Roadmap](#roadmap)
 1. [Resources](#resources)
 1. [License](#license)
-
 
 <a name="dependencies"></a>
 ## [0](#dependencies) Dependencies
@@ -174,6 +173,23 @@ Calculator::Calculator()
     _total = 0;
 }
 ```
+
+**[back to top](#table-of-contents)**
+
+<a name="file-names"></a>
+## [5](#file-names) File Names
+
+File names must reflect the name of the class implementation that they contain, including case.
+Follow the convention that your project uses. File extensions must be as follows:
+
+| Extension | Type |
+|---|---|
+| .h | C header file |
+| .hpp | C++ header file |
+| .c | C implementation file |
+| .cpp | C++ implementation file |
+
+Files containing code that may be shared across projects or used in a large project must have a clearly unique name, typically including the project.
 
 **[back to top](#table-of-contents)**
 
