@@ -9,7 +9,7 @@ So use it in your favor if you want to and/or override the style guide in any wa
 
 1. [Dependencies](#dependencies)
 1. [Comments / Doxygen](#comments)
-1. [File Names](#file-names)
+1. [Files](#files)
 1. [Asset Naming Conventions](#asset-naming-conventions)
 1. [Logging](#logging)
 1. [Roadmap](#roadmap)
@@ -175,8 +175,11 @@ Calculator::Calculator()
 
 **[back to top](#table-of-contents)**
 
-<a name="file-names"></a>
-## [5](#file-names) File Names
+<a name="files"></a>
+## [0](#files) Files
+
+<a name="files-file-names"></a>
+### [0.1](#files-file-names) File Names
 
 File names must reflect the name of the class implementation that they contain, including case.
 Follow the convention that your project uses. File extensions must be as follows:
@@ -189,6 +192,40 @@ Follow the convention that your project uses. File extensions must be as follows
 | .cpp | C++ implementation file |
 
 Files containing code that may be shared across projects or used in a large project must have a clearly unique name, typically including the project.
+
+<a name="files-file-encoding"></a>
+### [0.2](#files-file-encoding) File encoding: UTF-8
+
+Source files are encoded in UTF-8.
+
+<a name="files-whitespace-characters"></a>
+### [0.3](#files-whitespace-characters) Whitespace characters
+
+Aside from the line terminator sequence, the ASCII horizontal space character (0x20) is the only whitespace character that appears anywhere in a source file.
+
+This implies that:
+
+* All other whitespace characters in string and character literals are escaped.
+* Tab characters are not used for indentation.
+
+<a name="files-header-file-structure"></a>
+### [0.4](#files-header-file-structure) Header file structure
+
+A header file consists of, *in order*:
+
+* License or copyright information, if present
+* Include statements
+* Forward declarations
+* At most one top-level class
+
+<a name="files-source-file-structure"></a>
+### [0.5](#files-source-file-structure) Source file structure
+
+A source file consists of, *in order*:
+
+* License or copyright information, if present
+* Include statements
+* Exactly one top-level class
 
 **[back to top](#table-of-contents)**
 
