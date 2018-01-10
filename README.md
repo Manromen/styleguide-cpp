@@ -8,8 +8,15 @@ So use it in your favor if you want to and/or override the style guide in any wa
 ## Table of Contents
 
 1. [Dependencies](#dependencies)
-1. [Comments / Doxygen](#comments)
 1. [Files](#files)
+1. [Scoping](#scoping)
+1. [Classes](#classes)
+1. [Functions](#functions)
+1. [Other C++ Features](#other-cpp-features)
+1. [Naming](#naming)
+1. [Comments / Doxygen](#comments)
+1. [Formatting](#formatting)
+1. [Exceptions to the Rules](#rule-exceptions)
 1. [Asset Naming Conventions](#asset-naming-conventions)
 1. [Logging](#logging)
 1. [Roadmap](#roadmap)
@@ -34,6 +41,93 @@ Libraries must be included using git submodules if compiled within the project i
 ### [0.3](#dependencies-folder) Folder
 
 Dependencies should be found and structured at a well known place. Therefore these must be placed under the `deps` folder at the souce root. Precompiled libraries must be placed under the subfolder `lib` and the corresponding header files must be under the subfolder `include`.
+
+**[back to top](#table-of-contents)**
+
+<a name="files"></a>
+## [0](#files) Files
+
+<a name="files-file-names"></a>
+### [0.1](#files-file-names) File Names
+
+File names must reflect the name of the class implementation that they contain, including case.
+Follow the convention that your project uses. File extensions must be as follows:
+
+| Extension | Type |
+|---|---|
+| .h | C header file |
+| .hpp | C++ header file |
+| .c | C implementation file |
+| .cpp | C++ implementation file |
+
+Files containing code that may be shared across projects or used in a large project must have a clearly unique name, typically including the project.
+
+<a name="files-file-encoding"></a>
+### [0.2](#files-file-encoding) File encoding: UTF-8
+
+Source files are encoded in UTF-8.
+
+<a name="files-whitespace-characters"></a>
+### [0.3](#files-whitespace-characters) Whitespace characters
+
+Aside from the line terminator sequence, the ASCII horizontal space character (0x20) is the only whitespace character that appears anywhere in a source file.
+
+This implies that:
+
+* All other whitespace characters in string and character literals are escaped.
+* Tab characters are not used for indentation.
+
+<a name="files-header-file-structure"></a>
+### [0.4](#files-header-file-structure) Header file structure
+
+A header file consists of, *in order*:
+
+* License or copyright information, if present
+* An include guard (see [Header include guard](#files-header-include-guard))
+* Include statements
+* Forward declarations
+* At most one top-level class
+
+<a name="files-header-include-guard"></a>
+### [0.5](#files-header-include-guard) Header include guard
+
+All header files must use `#pragma once` to prevent multiple inclusion.
+
+<a name="files-source-file-structure"></a>
+### [0.6](#files-source-file-structure) Source file structure
+
+A source file consists of, *in order*:
+
+* License or copyright information, if present
+* Include statements
+* Exactly one top-level class
+
+**[back to top](#table-of-contents)**
+
+<a name="scoping"></a>
+## [0](#scoping) Scoping
+
+**[back to top](#table-of-contents)**
+
+<a name="classes"></a>
+## [0](#classes) Classes
+
+**[back to top](#table-of-contents)**
+
+<a name="functions"></a>
+## [0](#functions) Functions
+
+**[back to top](#table-of-contents)**
+
+<a name="other-cpp-features"></a>
+## [0](#other-cpp-features) Other C++ Features
+
+
+
+**[back to top](#table-of-contents)**
+
+<a name="naming"></a>
+## [0](#naming) Naming
 
 **[back to top](#table-of-contents)**
 
@@ -175,57 +269,8 @@ Calculator::Calculator()
 
 **[back to top](#table-of-contents)**
 
-<a name="files"></a>
-## [0](#files) Files
-
-<a name="files-file-names"></a>
-### [0.1](#files-file-names) File Names
-
-File names must reflect the name of the class implementation that they contain, including case.
-Follow the convention that your project uses. File extensions must be as follows:
-
-| Extension | Type |
-|---|---|
-| .h | C header file |
-| .hpp | C++ header file |
-| .c | C implementation file |
-| .cpp | C++ implementation file |
-
-Files containing code that may be shared across projects or used in a large project must have a clearly unique name, typically including the project.
-
-<a name="files-file-encoding"></a>
-### [0.2](#files-file-encoding) File encoding: UTF-8
-
-Source files are encoded in UTF-8.
-
-<a name="files-whitespace-characters"></a>
-### [0.3](#files-whitespace-characters) Whitespace characters
-
-Aside from the line terminator sequence, the ASCII horizontal space character (0x20) is the only whitespace character that appears anywhere in a source file.
-
-This implies that:
-
-* All other whitespace characters in string and character literals are escaped.
-* Tab characters are not used for indentation.
-
-<a name="files-header-file-structure"></a>
-### [0.4](#files-header-file-structure) Header file structure
-
-A header file consists of, *in order*:
-
-* License or copyright information, if present
-* Include statements
-* Forward declarations
-* At most one top-level class
-
-<a name="files-source-file-structure"></a>
-### [0.5](#files-source-file-structure) Source file structure
-
-A source file consists of, *in order*:
-
-* License or copyright information, if present
-* Include statements
-* Exactly one top-level class
+<a name="rule-exceptions"></a>
+## [0](#rule-exceptions) Exceptions to the Rules
 
 **[back to top](#table-of-contents)**
 
@@ -373,10 +418,10 @@ These items are categorized in two sections namely `next` for items added in the
 <a name="resources-related-work"></a>
 ### [0.2](#resources-related-work) Related Work
 
-This Style Guide is inspired by the following Style Guides:
+This Style Guide is based on the following Style Guides:
 
-* [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 * [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
+* [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 
 **[back to top](#table-of-contents)**
 
