@@ -128,7 +128,7 @@ int getType()
     // set the default type to 'no type'
     int typeOut = _type ? _type : -1;
     
-    return type;
+    return typeOut;
 }
 ```
 
