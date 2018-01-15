@@ -621,20 +621,26 @@ The `SIZE` part is optional and describes the size of the drawable. This can eit
 <a name="logging-logger"></a>
 ### [0.1](#logging-logger) Logger
 
-Today applications grow rapidly, becoming complicated and difficult to test and debug. This is where logging can help. For most applications we already use the [Boost libraries](http://www.boost.org). Boost provides also a library for logging. [Boost.Log v2](http://www.boost.org/doc/libs/1_66_0/libs/log/doc/html/index.html) and the appropiate log level must be used to help debug errors.
+Today applications grow rapidly, becoming complicated and difficult to test and debug. This is where logging can help.  
+
+The [Google logging module](https://github.com/google/glog) and the appropiate log level must be used to help debug errors. If the Google logging module is not available for the target platform, use [miniglog](https://github.com/tzutalin/miniglog) instead. Miniglog has the same interface as glog and can be interchanged with glog for other platforms.
+
+Use the debug logging version for message that are only intended to be seen by developers.
 
 ```
 // example
-#include <boost/log/trivial.hpp>
+#include <glog/logging.h>
 
 int main(int argc, char *argv[])
 {
-    BOOST_LOG_TRIVIAL(trace) << "A trace severity message";
-    BOOST_LOG_TRIVIAL(debug) << "A debug severity message";
-    BOOST_LOG_TRIVIAL(info) << "An informational severity message";
-    BOOST_LOG_TRIVIAL(warning) << "A warning severity message";
-    BOOST_LOG_TRIVIAL(error) << "An error severity message";
-    BOOST_LOG_TRIVIAL(fatal) << "A fatal severity message";
+    LOG(INFO) << "msg";
+    LOG(ERROR) << "error msg";
+    LOG(FATAL) << "fatal msg";
+
+    // Debug only version
+    DLOG(INFO) << "msg";
+    DLOG(ERROR) << "error msg";
+    DLOG(FATAL) << "fatal msg";
 
     return 0;
 }
@@ -643,17 +649,15 @@ int main(int argc, char *argv[])
 <a name="logging-loglevels"></a>
 ### [0.2](#logging-loglevels) Log levels
 
-Boost.Log provides a various amount of log levels each with its own purpose.
+Google provides a various amount of log levels each with its own purpose.
 Here is a list of log levels and their meaning:
 
 | Level | Meaning |
 |---|---|
-| trace | For developers only, can be used to follow the program execution. |
-| debug | For developers only, for debugging purpose. |
-| info | Production optionally, course grained (rarely written informations) that can help sysadmins etc. |
-| warning | Production, simple application error or unexpected behaviour. Application can continue. Warn for example in case of bad login attempts, unexpected data during import jobs. |
-| error | Production, application error/exception but application can continue. Part of the application is probably not working. |
-| fatal | Production, fatal application error/exception, application cannot continue, for example database is down. |
+| INFO | Course grained (rarely written informations) that can help sysadmins etc. |
+| WARNING | Simple application error or unexpected behaviour. Application can continue. Warn for example in case of bad login attempts, unexpected data during import jobs. |
+| ERROR | Application error/exception but application can continue. Part of the application is probably not working. |
+| FATAL | Fatal application error/exception, application cannot continue, for example database is down. |
 
 <a name="logging-log-messages"></a>
 ### [0.3](#logging-log-messages) Logging Messages
@@ -718,7 +722,8 @@ These items are categorized in two sections namely `next` for items added in the
 <a name="resources-logging"></a>
 ### [0.2](#resources-logging) Logging
 
-* [Boost.Log v2](http://www.boost.org/doc/libs/1_66_0/libs/log/doc/html/index.html)
+* [glog - Google logging module](https://github.com/google/glog)
+* [miniglog - Portable glog for cross-platforms](https://github.com/tzutalin/miniglog)
 
 <a name="resources-related-work"></a>
 ### [0.2](#resources-related-work) Related Work
