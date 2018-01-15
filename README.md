@@ -384,6 +384,49 @@ If you need a static or global variable of a class type, consider initializing a
 <a name="other-cpp-features"></a>
 ## [0](#other-cpp-features) Other C++ Features
 
+<a name="other-cpp-features-boost"></a>
+### [0.1](#other-cpp-features-boost) Boost
+
+Use only approved libraries from the Boost library collection.
+
+**Definition:**
+
+The [Boost library collection](http://www.boost.org) is a popular collection of peer-reviewed, free, open-source C++ libraries.
+
+**Pros:**
+
+Boost code is generally very high-quality, is widely portable, and fills many important gaps in the C++ standard library, such as type traits and better binders.
+
+**Cons:**
+
+Some Boost libraries encourage coding practices which can hamper readability, such as metaprogramming and other advanced template techniques, and an excessively "functional" style of programming.
+
+**Decision:**
+
+In order to maintain a high level of readability for all contributors who might read and maintain code, we only allow an approved subset of Boost features. Currently, the following libraries are permitted:
+
+* [Call Traits](https://www.boost.org/libs/utility/call_traits.htm) from boost/call_traits.hpp
+* [Compressed Pair](https://www.boost.org/libs/utility/compressed_pair.htm) from boost/compressed_pair.hpp
+* The [Boost Graph Library (BGL)](https://www.boost.org/libs/graph/) from boost/graph, except serialization (adj_list_serialize.hpp) and parallel/distributed algorithms and data structures (boost/graph/parallel/* and boost/graph/distributed/*).
+* [Property Map](https://www.boost.org/libs/property_map/) from boost/property_map, except parallel/distributed property maps (boost/property_map/parallel/*).
+* [Iterator](https://www.boost.org/libs/iterator/) from boost/iterator
+* The part of [Polygon](https://www.boost.org/libs/polygon/) that deals with Voronoi diagram construction and doesn't depend on the rest of Polygon: boost/polygon/voronoi_builder.hpp, boost/polygon/voronoi_diagram.hpp, and boost/polygon/voronoi_geometry_type.hpp
+* [Bimap](https://www.boost.org/libs/bimap/) from boost/bimap
+* [Statistical Distributions and Functions](https://www.boost.org/libs/math/doc/html/dist.html) from boost/math/distributions
+* [Special Functions](https://www.boost.org/libs/math/doc/html/special.html) from boost/math/special_functions
+* [Multi-index](https://www.boost.org/libs/multi_index/) from boost/multi_index
+* [Heap](https://www.boost.org/libs/heap/) from boost/heap
+* The flat containers from [Container](https://www.boost.org/libs/container/): boost/container/flat_map, and boost/container/flat_set
+* [Intrusive](https://www.boost.org/libs/intrusive/) from boost/intrusive.
+* The [boost/sort](https://www.boost.org/libs/sort/) library.
+* [Preprocessor](https://www.boost.org/libs/preprocessor/) from boost/preprocessor.
+
+We are actively considering adding other Boost features to the list, so this list may be expanded in the future.
+
+The following libraries are forbidden, because they've been superseded by standard libraries in C++11:
+
+* [Array](https://www.boost.org/libs/array/) from boost/array.hpp: use [std::array](http://en.cppreference.com/w/cpp/container/array) instead.
+* [Pointer Container](https://www.boost.org/libs/ptr_container/) from boost/ptr_container: use containers of [std::unique_ptr](http://en.cppreference.com/w/cpp/memory/unique_ptr) instead.
 
 
 **[back to top](#table-of-contents)**
