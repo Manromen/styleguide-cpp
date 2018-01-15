@@ -93,8 +93,76 @@ A header file consists of, *in order*:
 
 All header files must use `#pragma once` to prevent multiple inclusion.
 
+<a name="files-forward-declarations"></a>
+### [2.6](#files-forward-declarations) Forward Declarations
+
+Avoid using forward declarations where possible. Just `#include` the headers you need.
+
+**Defenition:**
+
+A "forward declaration" is a declaration of a class, function, or template without an associated definition.
+
+**Pros:**
+
+* Forward declarations can save compile time, as #includes force the compiler to open more files and process more input.
+* Forward declarations can save on unnecessary recompilation. #includes can force your code to be recompiled more often, due to unrelated changes in the header.
+
+**Cons:**
+
+* Forward declarations can hide a dependency, allowing user code to skip necessary recompilation when headers change.
+* A forward declaration may be broken by subsequent changes to the library. Forward declarations of functions and templates can prevent the header owners from making otherwise-compatible changes to their APIs, such as widening a parameter type, adding a template parameter with a default value, or migrating to a new namespace.
+* Forward declaring symbols from namespace `std::` yields undefined behavior.
+* It can be difficult to determine whether a forward declaration or a full `#include` is needed. Replacing an `#include` with a forward declaration can silently change the meaning of code:
+
+```
+// B.hpp:
+struct B {};
+struct D : B {};
+
+// GoodUser.cpp:
+#include "B.hpp"
+void f(B*);
+void f(void*);
+void test(D* x) { f(x); }  // calls f(B*)
+```
+
+If the `#include` was replaced with forward decls for `B` and `D`, `test()` would call `f(void*)`.
+* Forward declaring multiple symbols from a header can be more verbose than simply `#include`ing the header.
+* Structuring code to enable forward declarations (e.g. using pointer members instead of object members) can make the code slower and more complex.
+
+**Decision:**
+
+Try to avoid forward declarations of entities defined in another project.
+When using a function declared in a header file, always `#include` that header.
+When using a class template, prefer to `#include` its header file.
+
+<a name="files-inline-functions"></a>
+### [2.7](#files-inline-functions) Inline Functions
+
+Define functions inline only when they are small, say, 10 lines or fewer.
+
+**Definition:**
+
+You can declare functions in a way that allows the compiler to expand them inline rather than calling them through the usual function call mechanism.
+
+**Pros:**
+
+Inlining a function can generate more efficient object code, as long as the inlined function is small. Feel free to inline accessors and mutators, and other short, performance-critical functions.
+
+**Cons:**
+
+Overuse of inlining can actually make programs slower. Depending on a function's size, inlining it can cause the code size to increase or decrease. Inlining a very small accessor function will usually decrease code size while inlining a very large function can dramatically increase code size. On modern processors smaller code usually runs faster due to better use of the instruction cache.
+
+**Decision:**
+
+A decent rule of thumb is to not inline a function if it is more than 10 lines long. Beware of destructors, which are often longer than they appear because of implicit member- and base-destructor calls!
+
+Another useful rule of thumb: it's typically not cost effective to inline functions with loops or switch statements (unless, in the common case, the loop or switch statement is never executed).
+
+It is important to know that functions are not always inlined even if they are declared as such; for example, virtual and recursive functions are not normally inlined. Usually recursive functions should not be inline. The main reason for making a virtual function inline is to place its definition in the class, either for convenience or to document its behavior, e.g., for accessors and mutators.
+
 <a name="files-source-file-structure"></a>
-### [2.6](#files-source-file-structure) Source file structure
+### [2.8](#files-source-file-structure) Source file structure
 
 A source file consists of, *in order*:
 
