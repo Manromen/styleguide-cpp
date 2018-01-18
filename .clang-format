@@ -2,7 +2,7 @@
 Language:        Cpp
 # BasedOnStyle:  appcom c++ style guide
 # see ClangFormatStyleOptions - http://clang.llvm.org/docs/ClangFormatStyleOptions.html
-AccessModifierOffset: -1
+AccessModifierOffset: -2
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
@@ -68,7 +68,7 @@ IncludeCategories:
     Priority:        3
 IncludeIsMainRegex: '([-_](test|unittest))?$'
 IndentCaseLabels: true
-IndentWidth:     2
+IndentWidth: 4
 IndentWrappedFunctionNames: false
 JavaScriptQuotes: Leave
 JavaScriptWrapImports: true
