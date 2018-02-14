@@ -98,7 +98,7 @@ All header files must use `#pragma once` to prevent multiple inclusion.
 
 Avoid using forward declarations where possible. Just `#include` the headers you need.
 
-**Defenition:**
+**Definition:**
 
 A "forward declaration" is a declaration of a class, function, or template without an associated definition.
 
@@ -119,7 +119,8 @@ A "forward declaration" is a declaration of a class, function, or template witho
 struct B {};
 struct D : B {};
 
-// GoodUser.cpp:
+// Good 
+// User.cpp:
 #include "B.hpp"
 void f(B*);
 void f(void*);
