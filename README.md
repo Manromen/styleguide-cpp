@@ -446,7 +446,7 @@ If you need a static or global variable of a class type, consider initializing a
 Classes are the fundamental unit of code in C++. Naturally, we use them extensively. This section lists the main dos and don'ts you should follow when writing a class.
 
 <a name="classes-constructors"></a>
-## [4.1](#classes-constructors) Doing Work in Constructors
+### [4.1](#classes-constructors) Doing Work in Constructors
 
 Avoid virtual method calls in constructors, and avoid initialization that can fail if you can't signal an error.
 
@@ -471,7 +471,7 @@ It is possible to perform arbitrary initialization in the body of the constructo
 Constructors should never call virtual functions. If appropriate for your code, terminating the program may be an appropriate error handling response. Otherwise, consider a factory function or Init() method. Avoid Init() methods on objects with no other states that affect which public methods may be called (semi-constructed objects of this form are particularly hard to work with correctly).
 
 <a name="classes-implicit-conversion"></a>
-## [4.2](#classes-implicit-conversion) Implicit Conversions
+### [4.2](#classes-implicit-conversion) Implicit Conversions
 
 Do not define implicit conversions. Use the `explicit` keyword for conversion operators and single-argument constructors.
 
@@ -521,7 +521,7 @@ Type conversion operators, and constructors that are callable with a single argu
 Constructors that cannot be called with a single argument should usually omit explicit. Constructors that take a single std::initializer_list parameter should also omit explicit, in order to support copy-initialization (e.g. `MyType m = {1, 2};`).
 
 <a name="classes-copy-movable-types"></a>
-## [4.3](#classes-copy-movable-types) Copyable and Movable Types
+### [4.3](#classes-copy-movable-types) Copyable and Movable Types
 
 Support copying and/or moving if these operations are clear and meaningful for your type. Otherwise, disable the implicitly generated special functions that perform copies and moves.
 
@@ -576,7 +576,7 @@ MyClass& operator=(const MyClass&) = delete;
 ```
 
 <a name="classes-structs-vs-classes"></a>
-## [4.4](#classes-structs-vs-classes) Structs vs. Classes
+### [4.4](#classes-structs-vs-classes) Structs vs. Classes
 
 Use a `struct` only for passive objects that carry data; everything else is a `class`.
 
@@ -591,7 +591,7 @@ For consistency with STL, you can use `struct` instead of `class` for functors a
 Note that member variables in structs and classes have different naming rules.
 
 <a name="classes-inheritance"></a>
-## [4.5](#classes-inheritance) Inheritance
+### [4.5](#classes-inheritance) Inheritance
 
 Composition is often more appropriate than inheritance. When using inheritance, make it `public`.
 
@@ -620,7 +620,7 @@ Limit the use of protected to those member functions that might need to be acces
 Explicitly annotate overrides of virtual functions or virtual destructors with an `override` or (less frequently) `final` specifier. Older (pre-C++11) code will use the `virtual` keyword as an inferior alternative annotation. For clarity, use exactly one of `override`, `final`, or `virtual` when declaring an override. Rationale: A function or destructor marked `override` or `final` that is not an override of a base class virtual function will not compile, and this helps catch common errors. The specifiers serve as documentation; if no specifier is present, the reader has to check all ancestors of the class in question to determine if the function or destructor is virtual or not.
 
 <a name="classes-multiple-inheritance"></a>
-## [4.5](#classes-multiple-inheritance) Multiple Inheritance
+### [4.5](#classes-multiple-inheritance) Multiple Inheritance
 
 Only very rarely is multiple implementation inheritance actually useful. We allow multiple inheritance only when at most one of the base classes has an implementation; all other base classes must be pure interface classes tagged with the `Interface` suffix.
 
@@ -645,7 +645,7 @@ Multiple inheritance is allowed only when all superclasses, with the possible ex
 There is an [exception](#rule-exceptions-windows) to this rule on Windows.
 
 <a name="classes-interfaces"></a>
-## [4.6](#classes-interfaces) Interfaces
+### [4.6](#classes-interfaces) Interfaces
 
 Classes that satisfy certain conditions are allowed, but not required, to end with an `Interface` suffix.
 
@@ -673,7 +673,7 @@ The Interface suffix lengthens the class name, which can make it harder to read 
 A class may end with Interface only if it meets the above requirements. We do not require the converse, however: classes that meet the above requirements are not required to end with Interface.
 
 <a name="classes-operator-overloading"></a>
-## [4.7](#classes-operator-overloading) Operator Overloading
+### [4.7](#classes-operator-overloading) Operator Overloading
 
 Overload operators judiciously. Do not create user-defined literals.
 
@@ -714,12 +714,12 @@ Do not overload `&&`, `||`, `,` (comma), or `unary &`. Do not overload `operator
 Type conversion operators are covered in the section on implicit conversions. The `=` operator is covered in the section on copy constructors. Overloading `<<` for use with streams is covered in the section on streams. See also the rules on function overloading, which apply to operator overloading as well.
 
 <a name="classes-access-control"></a>
-## [4.8](#classes-access-control) Access Control
+### [4.8](#classes-access-control) Access Control
 
 Make data members `private`, unless they are `static const` (and follow the naming convention for constants). For technical reasons, we allow data members of a test fixture class to be `protected` when using [Google Test](https://github.com/google/googletest)).
 
 <a name="classes-declaration-order"></a>
-## [4.9](#classes-declaration-order) Declaration Order
+### [4.9](#classes-declaration-order) Declaration Order
 
 Group similar declarations together, placing `public` parts earlier.
 
@@ -771,6 +771,12 @@ The following libraries are forbidden, because they've been superseded by standa
 
 <a name="naming"></a>
 ## [7](#naming) Naming
+
+The most important consistency rules are those that govern naming. The style of a name immediately informs us what sort of thing the named entity is: a type, a variable, a function, a constant, a macro, etc., without requiring us to search for the declaration of that entity. The pattern-matching engine in our brains relies a great deal on these naming rules.
+
+Naming rules are pretty arbitrary, but we feel that consistency is more important than individual preferences in this area, so regardless of whether you find them sensible or not, the rules are the rules.
+
+
 
 **[back to top](#table-of-contents)**
 
@@ -925,14 +931,14 @@ Calculator::Calculator()
 The coding conventions described above are mandatory. However, like all good rules, these sometimes have exceptions, which we discuss here.
 
 <a name="rule-exceptions-old-code"></a>
-## [10.1](#rule-exceptions-old-code) Existing Non-conformant Code
+### [10.1](#rule-exceptions-old-code) Existing Non-conformant Code
 
 You may diverge from the rules when dealing with code that does not conform to this style guide.
 
 If you find yourself modifying code that was written to specifications other than those presented by this guide, you may have to diverge from these rules in order to stay consistent with the local conventions in that code. If you are in doubt about how to do this, ask the original author or the person currently responsible for the code. Remember that consistency includes local consistency, too.
 
 <a name="rule-exceptions-windows"></a>
-## [10.2](#rule-exceptions-windows) Windows Code
+### [10.2](#rule-exceptions-windows) Windows Code
 
 Windows programmers have developed their own set of coding conventions, mainly derived from the conventions in Windows headers and other Microsoft code. We want to make it easy for anyone to understand your code, so we have a single set of guidelines for everyone writing C++ on any platform.
 
