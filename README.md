@@ -742,7 +742,7 @@ Do not put large method definitions inline in the class definition. Usually, onl
 <a name="other-cpp-features-boost"></a>
 ### [6.1](#other-cpp-features-boost) Boost
 
-Use only approved libraries from the Boost library collection.
+Use only allowed libraries from the Boost library collection.
 
 **Definition:**
 
@@ -758,25 +758,8 @@ Some Boost libraries encourage coding practices which can hamper readability, su
 
 **Decision:**
 
-In order to maintain a high level of readability for all contributors who might read and maintain code, we only allow an approved subset of Boost features. Currently, the following libraries are permitted:
-
-* [Call Traits](https://www.boost.org/libs/utility/call_traits.htm) from boost/call_traits.hpp
-* [Compressed Pair](https://www.boost.org/libs/utility/compressed_pair.htm) from boost/compressed_pair.hpp
-* The [Boost Graph Library (BGL)](https://www.boost.org/libs/graph/) from boost/graph, except serialization (adj_list_serialize.hpp) and parallel/distributed algorithms and data structures (boost/graph/parallel/* and boost/graph/distributed/*).
-* [Property Map](https://www.boost.org/libs/property_map/) from boost/property_map, except parallel/distributed property maps (boost/property_map/parallel/*).
-* [Iterator](https://www.boost.org/libs/iterator/) from boost/iterator
-* The part of [Polygon](https://www.boost.org/libs/polygon/) that deals with Voronoi diagram construction and doesn't depend on the rest of Polygon: boost/polygon/voronoi_builder.hpp, boost/polygon/voronoi_diagram.hpp, and boost/polygon/voronoi_geometry_type.hpp
-* [Bimap](https://www.boost.org/libs/bimap/) from boost/bimap
-* [Statistical Distributions and Functions](https://www.boost.org/libs/math/doc/html/dist.html) from boost/math/distributions
-* [Special Functions](https://www.boost.org/libs/math/doc/html/special.html) from boost/math/special_functions
-* [Multi-index](https://www.boost.org/libs/multi_index/) from boost/multi_index
-* [Heap](https://www.boost.org/libs/heap/) from boost/heap
-* The flat containers from [Container](https://www.boost.org/libs/container/): boost/container/flat_map, and boost/container/flat_set
-* [Intrusive](https://www.boost.org/libs/intrusive/) from boost/intrusive.
-* The [boost/sort](https://www.boost.org/libs/sort/) library.
-* [Preprocessor](https://www.boost.org/libs/preprocessor/) from boost/preprocessor.
-
-We are actively considering adding other Boost features to the list, so this list may be expanded in the future.
+Currently we allow all libraries except the ones that have been superseded by standard libraries in C++.
+This might change if we gained some more experience in the readability. 
 
 The following libraries are forbidden, because they've been superseded by standard libraries in C++11:
 
