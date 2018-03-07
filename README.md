@@ -1006,41 +1006,51 @@ The `SIZE` part is optional and describes the size of the drawable. This can eit
 
 Today applications grow rapidly, becoming complicated and difficult to test and debug. This is where logging can help.  
 
-The [Google logging module](https://github.com/google/glog) and the appropiate log level must be used to help debug errors. If the Google logging module is not available for the target platform, use [miniglog](https://github.com/tzutalin/miniglog) instead. Miniglog has the same interface as glog and can be interchanged with glog for other platforms.
+The [Boost.Log v2](http://boost.org/libs/log) and the appropiate log level must be used to help debug errors.
 
 Use the debug logging version for message that are only intended to be seen by developers.
 
 ```
 // example
-#include <glog/logging.h>
+#include <cstdlib>
+
+#include <boost/log/trivial.hpp>
 
 int main(int argc, char *argv[])
 {
-    LOG(INFO) << "msg";
-    LOG(ERROR) << "error msg";
-    LOG(FATAL) << "fatal msg";
+#if defined(NDEBUG)
+    boost::log::core::get()->set_filter(boost::log::trivial::severity >= boost::log::trivial::info);
+#else
+    boost::log::core::get()->set_filter(boost::log::trivial::severity >= boost::log::trivial::debug);
+#endif
 
-    // Debug only version
-    DLOG(INFO) << "msg";
-    DLOG(ERROR) << "error msg";
-    DLOG(FATAL) << "fatal msg";
+    BOOST_LOG_TRIVIAL(trace) << "A trace severity message";
+    BOOST_LOG_TRIVIAL(debug) << "A debug severity message";
+    BOOST_LOG_TRIVIAL(info) << "An informational severity message";
+    BOOST_LOG_TRIVIAL(warning) << "A warning severity message";
+    BOOST_LOG_TRIVIAL(error) << "An error severity message";
+    BOOST_LOG_TRIVIAL(fatal) << "A fatal severity message";
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 ```
 
 <a name="logging-loglevels"></a>
 ### [11.2](#logging-loglevels) Log levels
 
-Google provides a various amount of log levels each with its own purpose.
+[Boost.Log v2](http://boost.org/libs/log) provides a various amount of log levels each with its own purpose.
 Here is a list of log levels and their meaning:
 
 | Level | Meaning |
 |---|---|
-| INFO | Course grained (rarely written informations) that can help sysadmins etc. |
-| WARNING | Simple application error or unexpected behaviour. Application can continue. Warn for example in case of bad login attempts, unexpected data during import jobs. |
-| ERROR | Application error/exception but application can continue. Part of the application is probably not working. |
-| FATAL | Fatal application error/exception, application cannot continue, for example database is down. |
+| trace | More detailed debugging informations, mostly used to hunt down bugs. Only to be read by developers. |
+| debug | Informations written for debugging purposes (only on debug builds), meant only to be read by developers. |
+| info | Course grained (rarely written informations) that can help sysadmins etc. |
+| warning | Simple application error or unexpected behaviour. Application can continue. Warn for example in case of bad login attempts, unexpected data during import jobs. |
+| error | Application error/exception but application can continue. Part of the application is probably not working. |
+| fatal | Fatal application error/exception, application cannot continue, for example database is down. |
+
+By default, the logging level of an application should be `debug` on debug builds and `info` on release builds.
 
 <a name="logging-log-messages"></a>
 ### [11.3](#logging-log-messages) Logging Messages
@@ -1105,8 +1115,7 @@ These items are categorized in two sections namely `next` for items added in the
 <a name="resources-logging"></a>
 ### [13.2](#resources-logging) Logging
 
-* [glog - Google logging module](https://github.com/google/glog)
-* [miniglog - Portable glog for cross-platforms](https://github.com/tzutalin/miniglog)
+* [Boost.Log v2](http://boost.org/libs/log)
 
 <a name="resources-related-work"></a>
 ### [13.2](#resources-related-work) Related Work
@@ -1123,7 +1132,7 @@ This Style Guide is based on the following Style Guides:
 
 (The MIT License)
 
-Copyright (c) 2017 appcom interactive GmbH
+Copyright (c) 2018 appcom interactive GmbH
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
