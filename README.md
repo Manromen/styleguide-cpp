@@ -912,20 +912,27 @@ Calculator::Calculator()
 
 **[back to top](#table-of-contents)**
 
+<a name="formatting"></a>
+## [9](#formatting) Formatting
+
+
+
+**[back to top](#table-of-contents)**
+
 <a name="rule-exceptions"></a>
-## [9](#rule-exceptions) Exceptions to the Rules
+## [10](#rule-exceptions) Exceptions to the Rules
 
 The coding conventions described above are mandatory. However, like all good rules, these sometimes have exceptions, which we discuss here.
 
 <a name="rule-exceptions-old-code"></a>
-## [9.1](#rule-exceptions-old-code) Existing Non-conformant Code
+## [10.1](#rule-exceptions-old-code) Existing Non-conformant Code
 
 You may diverge from the rules when dealing with code that does not conform to this style guide.
 
 If you find yourself modifying code that was written to specifications other than those presented by this guide, you may have to diverge from these rules in order to stay consistent with the local conventions in that code. If you are in doubt about how to do this, ask the original author or the person currently responsible for the code. Remember that consistency includes local consistency, too.
 
 <a name="rule-exceptions-windows"></a>
-## [9.2](#rule-exceptions-windows) Windows Code
+## [10.2](#rule-exceptions-windows) Windows Code
 
 Windows programmers have developed their own set of coding conventions, mainly derived from the conventions in Windows headers and other Microsoft code. We want to make it easy for anyone to understand your code, so we have a single set of guidelines for everyone writing C++ on any platform.
 
@@ -946,10 +953,10 @@ However, there are just a few rules that we occasionally need to break on Window
 **[back to top](#table-of-contents)**
 
 <a name="asset-naming-conventions"></a>
-## [10](#asset-naming-conventions) Asset Naming Conventions
+## [11](#asset-naming-conventions) Asset Naming Conventions
 
 <a name="asset-naming-conventions-image-naming"></a>
-### [10.1](#asset-naming-conventions-image-naming) Image Naming
+### [11.1](#asset-naming-conventions-image-naming) Image Naming
 
 Images must be named after the following pattern:
 
@@ -982,10 +989,10 @@ The `SIZE` part is optional and describes the size of the drawable. This can eit
 **[back to top](#table-of-contents)**
 
 <a name="logging"></a>
-## [11](#logging) Logging
+## [12](#logging) Logging
 
 <a name="logging-logger"></a>
-### [11.1](#logging-logger) Logger
+### [12.1](#logging-logger) Logger
 
 Today applications grow rapidly, becoming complicated and difficult to test and debug. This is where logging can help.  
 
@@ -1019,7 +1026,7 @@ int main(int argc, char *argv[])
 ```
 
 <a name="logging-loglevels"></a>
-### [11.2](#logging-loglevels) Log levels
+### [12.2](#logging-loglevels) Log levels
 
 [Boost.Log v2](http://boost.org/libs/log) provides a various amount of log levels each with its own purpose.
 Here is a list of log levels and their meaning:
@@ -1036,7 +1043,7 @@ Here is a list of log levels and their meaning:
 By default, the logging level of an application should be `debug` on debug builds and `info` on release builds.
 
 <a name="logging-log-messages"></a>
-### [11.3](#logging-log-messages) Logging Messages
+### [12.3](#logging-log-messages) Logging Messages
 
 Write meaningful log messages. This sounds easy but is in fact really hard. Keep in mind, that you sometimes log for the event of an error, which in reality occurs only rarely. 
 But if it does, you depend on a clear log message along with an expressive payload. A good log message must consist of the following items:
@@ -1046,12 +1053,12 @@ But if it does, you depend on a clear log message along with an expressive paylo
 * An expressive payload, usually a JSON
 
 <a name="logging-log-language"></a>
-### [11.4](#logging-log-language) Logging Message Language
+### [12.4](#logging-log-language) Logging Message Language
 
 Write your log messages in english. English is a well known language both in terms of writing and reading. Furthermore does it not contain any special characters, which means that it can be logged with ASCII. This is especially important when performing log rotation, since you do not know where your logs are stored.
 
 <a name="logging-payload"></a>
-### [11.5](#logging-payload) Logging Payload
+### [12.5](#logging-payload) Logging Payload
 
 Always log with payload (i.e. context).
 The log message often is not sufficient when tracing bugs. You almost always need additional information. So just log them along with the message and you keep yourself from deploying a new version of the app just to improve log messages.
@@ -1072,36 +1079,36 @@ Transaction '63287' failed: Checksum 'null' is invalid!
 **[back to top](#table-of-contents)**
 
 <a name="roadmap"></a>
-## [12](#roadmap) Roadmap
+## [13](#roadmap) Roadmap
 
 This section describes items, which will be added to this style guide in the future.
 These items are categorized in two sections namely `next` for items added in the next release and `future` for items added in future releases without a fixed date.
 
 <a name="roadmap-next"></a>
-### [12.1](#roadmap-next) Next
+### [13.1](#roadmap-next) Next
 
 <a name="roadmap-future"></a>
-### [12.2](#roadmap-future) Future
+### [13.2](#roadmap-future) Future
 
 * Linter for continuous integration based on this style guide
 
 **[back to top](#table-of-contents)**
 
 <a name="resources"></a>
-## [13](#resources) Resources
+## [14](#resources) Resources
 
 <a name="resources-documentation"></a>
-### [13.1](#resources-documentation) Documentation
+### [14.1](#resources-documentation) Documentation
 
 * [http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html](http://www.stack.nl/~dimitri/doxygen/manual/docblocks.html)
 
 <a name="resources-logging"></a>
-### [13.2](#resources-logging) Logging
+### [14.2](#resources-logging) Logging
 
 * [Boost.Log v2](http://boost.org/libs/log)
 
 <a name="resources-related-work"></a>
-### [13.2](#resources-related-work) Related Work
+### [14.2](#resources-related-work) Related Work
 
 This Style Guide is based on the following Style Guides:
 
@@ -1111,7 +1118,7 @@ This Style Guide is based on the following Style Guides:
 **[back to top](#table-of-contents)**
 
 <a name="license"></a>
-## [14](#license) License
+## [15](#license) License
 
 (The MIT License)
 
