@@ -776,7 +776,35 @@ The most important consistency rules are those that govern naming. The style of 
 
 Naming rules are pretty arbitrary, but we feel that consistency is more important than individual preferences in this area, so regardless of whether you find them sensible or not, the rules are the rules.
 
+<a name="naming-general"></a>
+### [7.1](#naming-general) General Naming Rules
 
+<a name="naming-file-names"></a>
+### [7.2](#naming-file-names) File Names
+
+<a name="naming-type-names"></a>
+### [7.3](#naming-type-names) Type Names
+
+<a name="naming-variable-names"></a>
+### [7.4](#naming-variable-names) Variable Names
+
+<a name="naming-constant-names"></a>
+### [7.5](#naming-constant-names) Constant Names
+
+<a name="naming-function-names"></a>
+### [7.6](#naming-function-names) Function Names
+
+<a name="naming-namespace-names"></a>
+### [7.6](#naming-namespace-names) Namespace Names
+
+<a name="naming-enumerator-names"></a>
+### [7.7](#naming-enumerator-names) Enumerator Names
+
+<a name="naming-macro-names"></a>
+### [7.8](#naming-macro-names) Macro Names
+
+<a name="naming-exceptions-to-rules"></a>
+### [7.9](#naming-exceptions-to-rules) Exceptions to Naming Rules
 
 **[back to top](#table-of-contents)**
 
@@ -921,6 +949,78 @@ Calculator::Calculator()
 <a name="formatting"></a>
 ## [9](#formatting) Formatting
 
+Coding style and formatting are pretty arbitrary, but a project is much easier to follow if everyone uses the same style. Individuals may not agree with every aspect of the formatting rules, and some of the rules may take some getting used to, but it is important that all project contributors follow the style rules so that they can all read and understand everyone's code easily.
+
+To help you format code correctly, we've created a `.clang-format` file.
+
+<a name="formatting-line-length"></a>
+### [9.1](#formatting-line-length) Line Length
+
+<a name="formatting-non-ascii"></a>
+### [9.2](#formatting-non-ascii) Non-ASCII Characters
+
+<a name="formatting-spaces-vs-tabs"></a>
+### [9.3](#formatting-spaces-vs-tabs) Spaces vs. Tabs
+
+<a name="formatting-function-declaration"></a>
+### [9.4](#formatting-function-declaration) Function Declarations and Definitions
+
+<a name="formatting-lambda-expressions"></a>
+### [9.5](#formatting-lambda-expressions) Lambda Expressions
+
+<a name="formatting-function-calls"></a>
+### [9.6](#formatting-function-calls) Function Calls
+
+<a name="formatting-braced-initializer-list"></a>
+### [9.7](#formatting-braced-initializer-list) Braced Initializer List Format
+
+<a name="formatting-conditionals"></a>
+### [9.8](#formatting-conditionals) Conditionals
+
+<a name="formatting-loops-and-switch-statements"></a>
+### [9.9](#formatting-loops-and-switch-statements) Loops and Switch Statements
+
+<a name="formatting-pointer-and-reference-expressions"></a>
+### [9.10](#formatting-pointer-and-reference-expressions) Pointer and Reference Expressions
+
+<a name="formatting-boolean-expressions"></a>
+### [9.11](#formatting-boolean-expressions) Boolean Expressions
+
+<a name="formatting-return-values"></a>
+### [9.12](#formatting-return-values) Return Values
+
+<a name="formatting-variable-and-array-initialization"></a>
+### [9.13](#formatting-variable-and-array-initialization) Variable and Array Initialization
+
+<a name="formatting-preprocessor-directives"></a>
+### [9.14](#formatting-preprocessor-directives) Preprocessor Directives
+
+<a name="formatting-class-format"></a>
+### [9.15](#formatting-class-format) Class Format
+
+<a name="formatting-constructor-initializer-lists"></a>
+### [9.16](#formatting-constructor-initializer-lists) Constructor Initializer Lists
+
+<a name="formatting-namespace-formatting"></a>
+### [9.17](#formatting-namespace-formatting) Namespace Formatting
+
+<a name="formatting-horizontal-whitespace"></a>
+### [9.18](#formatting-horizontal-whitespace) Horizontal Whitespace
+
+<a name="formatting-horizontal-whitespace-general"></a>
+#### [9.19.1](#formatting-horizontal-whitespace-general) General
+
+<a name="formatting-horizontal-whitespace-loops-and-conditionals"></a>
+#### [9.19.2](#formatting-horizontal-whitespace-loops-and-conditionals) Loops and Conditionals
+
+<a name="formatting-horizontal-whitespace-operators"></a>
+#### [9.19.3](#formatting-horizontal-whitespace-operators) Operators
+
+<a name="formatting-horizontal-whitespace-templates-and-casts"></a>
+#### [9.19.4](#formatting-horizontal-whitespace-templates-and-casts) Templates and Casts
+
+<a name="formatting-vertical-whitespace"></a>
+### [9.20](#formatting-vertical-whitespace) Vertical Whitespace
 
 
 **[back to top](#table-of-contents)**
