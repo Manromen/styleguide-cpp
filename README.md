@@ -1105,6 +1105,26 @@ MUST_USE_RESULT bool IsOK();
 <a name="formatting-lambda-expressions"></a>
 ### [9.5](#formatting-lambda-expressions) Lambda Expressions
 
+Format parameters and bodies as for any other function, and capture lists like other comma-separated lists.
+
+For by-reference captures, do not leave a space between the ampersand (&) and the variable name.
+
+```
+int x = 0;
+auto x_plus_n = [&x](int n) -> int { return x + n; }
+```
+
+Short lambdas may be written inline as function arguments.
+
+```
+std::set<int> blacklist = {7, 8, 9};
+std::vector<int> digits = {3, 9, 1, 8, 4, 7, 1};
+digits.erase(std::remove_if(digits.begin(), digits.end(), [&blacklist](int i) {
+               return blacklist.find(i) != blacklist.end();
+             }),
+             digits.end());
+```
+
 <a name="formatting-function-calls"></a>
 ### [9.6](#formatting-function-calls) Function Calls
 
