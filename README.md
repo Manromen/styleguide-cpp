@@ -1007,6 +1007,101 @@ We use spaces for indentation. Do not use tabs in your code. You should set your
 <a name="formatting-function-declaration"></a>
 ### [9.4](#formatting-function-declaration) Function Declarations and Definitions
 
+Return type on the same line as function name, parameters on the same line if they fit. Wrap parameter lists which do not fit on a single line as you would wrap arguments in a [function call](#formatting-function-calls).
+
+Functions look like this:
+
+```
+ReturnType ClassName::FunctionName(Type par_name1, Type par_name2) 
+{
+    DoSomething();
+    ...
+}
+```
+
+If you have too much text to fit on one line:
+
+```
+ReturnType ClassName::ReallyLongFunctionName(Type par_name1, Type par_name2,
+                                             Type par_name3) 
+{
+    DoSomething();
+    ...
+}
+```
+
+or if you cannot fit even the first parameter:
+
+```
+ReturnType LongClassName::ReallyReallyReallyLongFunctionName(
+    Type par_name1,  // 4 space indent
+    Type par_name2,
+    Type par_name3) 
+{
+    DoSomething();  // 4 space indent
+    ...
+}
+```
+
+Some points to note:
+
+* Choose good parameter names.
+* A parameter name may be omitted only if the parameter is not used in the function's definition.
+* If you cannot fit the return type and the function name on a single line, break between them.
+* If you break after the return type of a function declaration or definition, do not indent.
+* The open parenthesis is always on the same line as the function name.
+* There is never a space between the function name and the open parenthesis.
+* There is never a space between the parentheses and the parameters.
+* The open curly brace is always on the start of the next line.
+* The close curly brace is either on the last line by itself or on the same line as the open curly brace.
+* There should be a space between the close parenthesis and the open curly brace.
+* All parameters should be aligned if possible.
+* Default indentation is 4 spaces.
+* Wrapped parameters have a 4 space indent.
+
+Unused parameters that are obvious from context may be omitted:
+
+```
+class Foo
+{
+  public:
+    Foo(Foo&&);
+    Foo(const Foo&);
+    Foo& operator=(Foo&&);
+    Foo& operator=(const Foo&);
+};
+```
+
+Unused parameters that might not be obvious should comment out the variable name in the function definition:
+
+```
+class Shape 
+{
+  public:
+    virtual void Rotate(double radians) = 0;
+};
+
+class Circle : public Shape 
+{
+  public:
+    void Rotate(double radians) override;
+};
+
+void Circle::Rotate(double /*radians*/) {}
+```
+
+```
+// Bad - if someone wants to implement later, it's not clear what the
+// variable means.
+void Circle::Rotate(double) {}
+```
+
+Attributes, and macros that expand to attributes, appear at the very beginning of the function declaration or definition, before the return type:
+
+```
+MUST_USE_RESULT bool IsOK();
+```
+
 <a name="formatting-lambda-expressions"></a>
 ### [9.5](#formatting-lambda-expressions) Lambda Expressions
 
