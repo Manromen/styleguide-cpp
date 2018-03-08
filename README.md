@@ -1190,6 +1190,38 @@ my_widget.Transform(x1, x2, x3,
 <a name="formatting-braced-initializer-list"></a>
 ### [9.7](#formatting-braced-initializer-list) Braced Initializer List Format
 
+Format a braced initializer list exactly like you would format a function call in its place.
+
+If the braced list follows a name (e.g. a type or variable name), format as if the {} were the parentheses of a function call with that name. If there is no name, assume a zero-length name.
+
+```
+// Examples of braced init list on a single line.
+return {foo, bar};
+functioncall({foo, bar});
+std::pair<int, int> p{foo, bar};
+
+// When you have to wrap.
+SomeFunction(
+    {"assume a zero-length name before {"},
+    some_other_function_parameter);
+SomeType variable{
+    some, other, values,
+    {"assume a zero-length name before {"},
+    SomeOtherType{
+        "Very long string requiring the surrounding breaks.",
+        some, other values},
+    SomeOtherType{"Slightly shorter string",
+                  some, other, values}};
+SomeType variable{
+    "This is too long to fit all in one line"};
+MyType m = {  // Here, you could also break before {.
+    superlongvariablename1,
+    superlongvariablename2,
+    {short, interior, list},
+    {interiorwrappinglist,
+     interiorwrappinglist2}};
+```
+
 <a name="formatting-conditionals"></a>
 ### [9.8](#formatting-conditionals) Conditionals
 
