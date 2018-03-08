@@ -1000,6 +1000,10 @@ You shouldn't use the C++11 char16_t and char32_t character types, since they're
 <a name="formatting-spaces-vs-tabs"></a>
 ### [9.3](#formatting-spaces-vs-tabs) Spaces vs. Tabs
 
+Use only spaces, and indent 4 spaces at a time.
+
+We use spaces for indentation. Do not use tabs in your code. You should set your editor to emit spaces when you hit the tab key.
+
 <a name="formatting-function-declaration"></a>
 ### [9.4](#formatting-function-declaration) Function Declarations and Definitions
 
