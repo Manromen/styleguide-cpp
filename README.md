@@ -1052,7 +1052,7 @@ Some points to note:
 * The open parenthesis is always on the same line as the function name.
 * There is never a space between the function name and the open parenthesis.
 * There is never a space between the parentheses and the parameters.
-* The open curly brace is always on the start of the next line.
+* The open curly brace is on the start of the next line if the function declaration and the body doesn't fit in one line.
 * The close curly brace is either on the last line by itself or on the same line as the open curly brace.
 * There should be a space between the close parenthesis and the open curly brace.
 * All parameters should be aligned if possible.
