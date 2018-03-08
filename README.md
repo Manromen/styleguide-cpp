@@ -956,6 +956,34 @@ To help you format code correctly, we've created a `.clang-format` file.
 <a name="formatting-line-length"></a>
 ### [9.1](#formatting-line-length) Line Length
 
+Each line of text in your code should be at most 120 characters long.
+
+We recognize that this rule is controversial, but we feel that 120 characters are a reasonable compromise.
+
+**Pros:**
+
+Those who favor a rule of 80 characters argue that it is rude to force them to resize their windows and there is no need for anything longer. Some folks are used to having several code windows side-by-side, and thus don't have room to widen their windows in any case. People set up their work environment assuming a particular maximum window width, and 80 columns has been the traditional standard. Why change it?
+
+**Cons:**
+
+Proponents of change argue that a wider line can make code more readable. The 80-column limit is an hidebound throwback to 1960s mainframes; modern equipment has wide screens that can easily show longer lines.
+
+**Decision:**
+
+120 characters is the maximum.
+
+**Exception:**
+
+Comment lines can be longer than 120 characters if it is not feasible to split them without harming readability, ease of cut and paste or auto-linking -- e.g. if a line contains an example command or a literal URL longer than 120 characters.
+
+**Exception:**
+
+A raw-string literal may have content that exceeds 120 characters. Except for test code, such literals should appear near the top of a file.
+
+**Exception:**
+
+An #include statement with a long path may exceed 120 columns.
+
 <a name="formatting-non-ascii"></a>
 ### [9.2](#formatting-non-ascii) Non-ASCII Characters
 
