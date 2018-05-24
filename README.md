@@ -1225,6 +1225,93 @@ MyType m = {  // Here, you could also break before {.
 <a name="formatting-conditionals"></a>
 ### [9.8](#formatting-conditionals) Conditionals
 
+Don't use spaces inside parentheses. The if and else keywords belong on separate lines.
+
+```
+if (condition) // no spaces inside parentheses
+{
+    ...  // 4 space indent.
+} 
+else if (...) // The else goes on a seperate line
+{
+    ...
+} 
+else 
+{
+    ...
+}
+```
+
+```
+if ( condition ) // Bad: spaces inside parentheses
+{
+    ...
+}
+```
+
+Note that in all cases you must have a space between the if and the open parenthesis. You must also have a space between the close parenthesis and the curly brace, if it is on the same line.
+
+```
+if(condition) {   // Bad - space missing after IF.
+if (condition){   // Bad - space missing before {.
+if(condition){    // Doubly bad.
+```
+```
+if (condition) { ... } // Good - proper space after IF and before {.
+```
+
+Short conditional statements may be written on one line. You may use this only when the line is brief and the statement does not use the else clause.
+
+```
+if (x == kFoo) return new Foo();
+if (x == kBar) return new Bar();
+```
+
+This is not allowed when the if statement has an else:
+
+```
+// Not allowed - IF statement on one line when there is an ELSE clause
+if (x) DoThis();
+else DoThat();
+```
+
+In general, curly braces are not required for single-line statements, but they are allowed if you like them; conditional or loop statements with complex conditions or statements may be more readable with curly braces. Some projects require that an if must always have an accompanying brace.
+
+```
+if (condition)
+  DoSomething();  // 2 space indent.
+
+if (condition) {
+  DoSomething();  // 2 space indent.
+}
+```
+
+However, if one part of an if-else statement uses curly braces, the other part must too:
+
+```
+// Not allowed - curly on IF but not ELSE
+if (condition) {
+  foo;
+} else
+  bar;
+
+// Not allowed - curly on ELSE but not IF
+if (condition)
+  foo;
+else {
+  bar;
+}
+```
+```
+// Curly braces around both IF and ELSE required because
+// one of the clauses used braces.
+if (condition) {
+  foo;
+} else {
+  bar;
+}
+```
+
 <a name="formatting-loops-and-switch-statements"></a>
 ### [9.9](#formatting-loops-and-switch-statements) Loops and Switch Statements
 
