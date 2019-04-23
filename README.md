@@ -1260,19 +1260,13 @@ if(condition){    // Doubly bad.
 if (condition) { ... } // Good - proper space after IF and before {.
 ```
 
-Short conditional statements may be written on one line. You may use this only when the line is brief and the statement does not use the else clause.
+Short conditional statements may not be written on one line even if the line is brief and the statement does not use the else clause.
 
 ```
-if (x == kFoo) return new Foo();
-if (x == kBar) return new Bar();
-```
+if (x == kFoo) return new Foo(); // Bad
 
-This is not allowed when the if statement has an else:
-
-```
-// Not allowed - IF statement on one line when there is an ELSE clause
-if (x) DoThis();
-else DoThat();
+if (x == kBar)
+    return new Bar(); // Good
 ```
 
 In general, curly braces are not required for single-line statements, but they are allowed if you like them; conditional or loop statements with complex conditions or statements may be more readable with curly braces. Some projects require that an if must always have an accompanying brace.
