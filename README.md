@@ -40,7 +40,7 @@ Libraries must be included using git submodules if compiled within the project i
 <a name="dependencies-folder"></a>
 ### [1.3](#dependencies-folder) Folder
 
-Dependencies should be found and structured at a well known place. Therefore these must be placed under the `deps` folder at the souce root. Precompiled libraries must be placed under the subfolder `lib` and the corresponding header files must be under the subfolder `include`.
+Dependencies should be found and structured at a well known place. Therefore these must be placed under the `deps` folder at the souce root. Precompiled libraries must be placed under the subfolder `lib` and the corresponding header files must be under the subfolder `include`. Alternatively if using conan, only the conanfile must be provided, as conan will handle the library files.
 
 **[back to top](#table-of-contents)**
 
