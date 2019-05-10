@@ -312,7 +312,7 @@ All declarations can be given internal linkage by placing them in unnamed namesp
 
 **Decision:**
 
-Use of internal linkage in .cpp files is encouraged for all code that does not need to be referenced elsewhere. Do not use internal linkage in .hpp files.
+Use of internal linkage in .cpp files is allowed for all code that does not need to be referenced elsewhere. Do not use internal linkage in .hpp files.
 
 Format unnamed namespaces like named namespaces. In the terminating comment, leave the namespace name empty:
 
