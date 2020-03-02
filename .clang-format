@@ -1,6 +1,6 @@
 ---
 Language:        Cpp
-# BasedOnStyle:  appcom c++ style guide
+# BasedOnStyle:  rgpaul c++ style guide - https://github.com/RGPaul/styleguide-cpp
 # see ClangFormatStyleOptions - http://clang.llvm.org/docs/ClangFormatStyleOptions.html
 AccessModifierOffset: -2
 AlignAfterOpenBracket: Align

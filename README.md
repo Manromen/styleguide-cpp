@@ -1,6 +1,6 @@
-# Appcom C++ Style Guide
+# C++ Style Guide
 
-This document describes the style guide applied to C++ projects for appcom interactive GmbH. It describes rules how to organize your project, dependencies and files, so that some best practises are held.
+This document describes the style guide used for RGPaul C++ projects by Ralph-Gordon Paul. It describes rules how to organize your project, dependencies and files, so that some best practises are held.
 
 So use it in your favor if you want to and/or override the style guide in any way you want.
 
@@ -1373,7 +1373,7 @@ Windows programmers have developed their own set of coding conventions, mainly d
 
 It is worth reiterating a few of the guidelines that you might forget if you are used to the prevalent Windows style:
 
-* Do not use Hungarian notation (for example, naming an integer iNum). Use the appcom naming conventions, including the .cpp extension for source files.
+* Do not use Hungarian notation (for example, naming an integer iNum). Use the rgpaul naming conventions, including the .cpp extension for source files.
 * Windows defines many of its own synonyms for primitive types, such as DWORD, HANDLE, etc. It is perfectly acceptable, and encouraged, that you use these types when calling Windows API functions. Even so, keep as close as you can to the underlying C++ types. For example, use `const TCHAR *` instead of `LPCTSTR`.
 * When compiling with Microsoft Visual C++, set the compiler to warning level 3 or higher, and treat all warnings as errors.
 * In fact, do not use any nonstandard extensions, like `#pragma` and `__declspec`, unless you absolutely must. Using `__declspec(dllimport)` and `__declspec(dllexport)` is allowed; however, you must use them through macros such as `DLLIMPORT` and `DLLEXPORT`, so that someone can easily disable the extensions if they share the code.
@@ -1547,6 +1547,7 @@ These items are categorized in two sections namely `next` for items added in the
 
 This Style Guide is based on the following Style Guides:
 
+* [Appcom C++ Style Guide](https://github.com/nanogiants/appcom-styleguide-cpp)
 * [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)
 * [Airbnb JavaScript Style Guide](https://github.com/airbnb/javascript)
 
@@ -1555,12 +1556,4 @@ This Style Guide is based on the following Style Guides:
 <a name="license"></a>
 ## [15](#license) License
 
-(The MIT License)
-
-Copyright (c) 2017-2019 appcom interactive GmbH
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the 'Software'), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+[The MIT License](LICENSE.md)
